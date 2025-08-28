@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Puzzle Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="quiz.html">Math Quiz</a> |
+    <a href="puzzle.html">Math Puzzle</a>
+  </nav>
+
+  <h1>🧩 Math Puzzle: Guess the Number</h1>
+  <p>I’m thinking of a number between 1 and 50. Can you guess it?</p>
+
+  <div id="puzzle-box">
+    <input type="number" id="guess" placeholder="Enter your guess">
+    <button id="guessBtn">Guess</button>
+    <p id="puzzle-feedback"></p>
+    <p>Attempts: <span id="attempts">0</span></p>
+  </div>
+
+  <div id="puzzle-result" style="display:none;">
+    <h2>🎉 You solved the puzzle!</h2>
+    <p>The number was <span id="secretNum"></span>.</p>
+    <p>You solved it in <span id="totalAttempts"></span> attempts.</p>
+    <button onclick="restartPuzzle()">Play Again</button>
+  </div>
+
+  <script src="puzzle.js"></script>
+</body>
+</html>
