@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Puzzle Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 { margin-bottom: 20px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 60px);
+      grid-gap: 5px;
+      margin-bottom: 20px;
+    }
+    .cell {
+      width: 60px;
+      height: 60px;
+      background: #ffeaa7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+    .empty {
+      background: #dfe6e9;
+      border: 2px dashed #636e72;
+      cursor: pointer;
+    }
+    .numbers {
+      display: flex;
+      gap: 10px;
+    }
+    .number {
+      width: 50px;
+      height: 50px;
+      background: #55efc4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+  <h2>Math Puzzle - Level 4</h2>
+
+  <div class="grid" id="puzzle">
+    <div class="cell">7</div>
+    <div class="cell">+</div>
+    <div class="cell empty" data-answer="2"></div>
+    <div class="cell">=</div>
+    <div class="cell">9</div>
+
+    <div class="cell">6</div>
+    <div class="cell">-</div>
+    <div class="cell">2</div>
+    <div class="cell">=</div>
+    <div class="cell empty" data-answer="4"></div>
+
+    <div class="cell empty" data-answer="9"></div>
+    <div class="cell">-</div>
+    <div class="cell">4</div>
+    <div class="cell">=</div>
+    <div class="cell">5</div>
+
+    <div class="cell">2</div>
+    <div class="cell">+</div>
+    <div class="cell empty" data-answer="6"></div>
+    <div class="cell">=</div>
+    <div class="cell empty" data-answer="8"></div>
+
+    <div class="cell">7</div>
+    <div class="cell">+</div>
+    <div class="cell empty" data-answer="2"></div>
+    <div class="cell">=</div>
+    <div class="cell">9</div>
+  </div>
+
+  <div class="numbers" id="numbers">
+    <div class="number" draggable="true">2</div>
+    <div class="number" draggable="true">2</div>
+    <div class="number" draggable="true">4</div>
+    <div class="number" draggable="true">6</div>
+    <div class="number" draggable="true">8</div>
+    <div class="number" draggable="true">9</div>
+  </div>
+
+  <script>
+    const numbers = document.querySelectorAll(".number");
+    const slots = document.querySelectorAll(".empty");
+
+    let dragged = null;
+
+    numbers.forEach(num => {
+      num.addEventListener("dragstart", e => {
+        dragged = num;
+        setTimeout(() => (num.style.display = "none"), 0);
+      });
+      num.addEventListener("dragend", e => {
+        dragged.style.display = "flex";
+        dragged = null;
+      });
+    });
+
+    slots.forEach(slot => {
+      slot.addEventListener("dragover", e => e.preventDefault());
+      slot.addEventListener("drop", e => {
+        if (!slot.textContent) {
+          slot.textContent = dragged.textContent;
+          slot.classList.remove("empty");
+          dragged.remove();
+          checkWin();
+        }
+      });
+    });
+
+    function checkWin() {
+      const slots = document.querySelectorAll("[data-answer]");
+      for (let slot of slots) {
+        if (slot.textContent !== slot.dataset.answer) {
+          return;
+        }
+      }
+      setTimeout(() => alert("🎉 Congratulations! Puzzle Solved!"), 200);
+    }
+  </script>
+</body>
+</html>
