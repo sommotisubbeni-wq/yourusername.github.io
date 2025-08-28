@@ -13,7 +13,7 @@
   </nav>
 
   <h1>🧮 Math Quiz Game</h1>
-  <p>Solve as many questions as you can!</p>
+  <p>Answer the questions and test your math skills!</p>
 
   <div id="quiz-box">
     <h2 id="question">Question will appear here</h2>
@@ -21,6 +21,13 @@
     <button id="submitBtn">Submit</button>
     <p id="feedback"></p>
     <p>Score: <span id="score">0</span></p>
+    <p>Questions Left: <span id="questionsLeft">10</span></p>
+  </div>
+
+  <div id="result-box" style="display:none;">
+    <h2>🎉 Quiz Finished!</h2>
+    <p>Your final score is: <span id="finalScore"></span></p>
+    <button onclick="restartQuiz()">Play Again</button>
   </div>
 
   <script src="script.js"></script>
