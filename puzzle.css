@@ -1,0 +1,28 @@
+#puzzle-box, #puzzle-result {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#puzzle-box input {
+  padding: 8px;
+  width: 150px;
+  margin: 10px;
+}
+
+#puzzle-box button, #puzzle-result button {
+  padding: 8px 15px;
+  background: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#puzzle-box button:hover, #puzzle-result button:hover {
+  background: #005fa3;
+}
