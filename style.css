@@ -1,33 +1,36 @@
-/* Basic styles for all pages */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+#quiz-box {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-nav {
-  background-color: #333;
-  padding: 10px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: yellow;
-}
-
-h1 {
+#quiz-box h2 {
   color: #0078d7;
 }
 
-p {
-  font-size: 18px;
+#quiz-box input {
+  padding: 8px;
+  width: 150px;
+  margin: 10px;
+}
+
+#quiz-box button {
+  padding: 8px 15px;
+  background: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#quiz-box button:hover {
+  background: #005fa3;
+}
+
+#feedback {
+  font-weight: bold;
+  margin-top: 10px;
 }
