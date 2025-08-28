@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My First Website</title>
-  <link rel="stylesheet" href="style.css"> <!-- Link CSS -->
+  <title>Math Quiz Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
     <a href="index.html">Home</a> |
-    <a href="about.html">About</a>
+    <a href="about.html">About</a> |
+    <a href="quiz.html">Math Quiz</a>
   </nav>
 
-  <h1>Hello, World! 🚀</h1>
-  <p>Welcome to my first website hosted for free on GitHub Pages.</p>
+  <h1>🧮 Math Quiz Game</h1>
+  <p>Solve as many questions as you can!</p>
 
-  <!-- Button to change background -->
-  <button id="colorBtn">Change Background Color</button>
+  <div id="quiz-box">
+    <h2 id="question">Question will appear here</h2>
+    <input type="number" id="answer" placeholder="Enter your answer">
+    <button id="submitBtn">Submit</button>
+    <p id="feedback"></p>
+    <p>Score: <span id="score">0</span></p>
+  </div>
 
-  <!-- Live clock -->
-  <h2 id="clock"></h2>
-
-  <script src="script.js"></script> <!-- Link JS -->
+  <script src="script.js"></script>
 </body>
 </html>
